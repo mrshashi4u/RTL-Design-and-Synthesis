@@ -4,7 +4,7 @@
     1. [iverilog](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#i--iverilog)
     2. [GTKWAVE](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#ii-gtkwave)
     3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
-3. [Flop coding style and optimization techniques](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
+3. [Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
     1. [Flop with asynchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
     2. [Flop with synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-setreset)
     3. [Flop with asynchronous and synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-and-asynchronous-setreset)
@@ -68,7 +68,7 @@ Table 2.4 List of commands used for RTL Synthesis
 |`show`|To display gate level schematic of the design|
 |`write\_verilog*  verilog\_file\_netlist.v`|To write netlist into a verilog file.|
 
-## **3. Flop coding style and optimization techniques**
+## **3. Flop coding style**
 Flops are introduced between the combinational circuits to avoid glitches in the circuit.
 
 There are mainly three flop coding styles which are -
@@ -125,3 +125,11 @@ begin
 end
 endmodule</code></pre>
 
+## **4. Introduction to optimisation**
+Optimization in VLSI digital circuits is required in order to design an efficient circuit in terms of area and power.
+### **4.1 Optimization of combinational circuits**
+ In combinational circuit design optimization is done at two levels.
+- Constant propagation
+- Boolean logic optimization
+#### **Constant propagation**
+Let consider an the following combinational circuit: 
