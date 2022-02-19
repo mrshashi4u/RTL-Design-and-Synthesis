@@ -57,9 +57,59 @@ Table 2.4 List of commands used for RTL Synthesis
 |`write\_verilog*  verilog\_file\_netlist.v`|To write netlist into a verilog file.|
 
 ## **3. Flop coding style and optimization techniques**
+Flops are introduced between the combinational circuits to avoid glitches in the circuit.
 
+There are mainly three flop coding styles which are -
 
+- Flop with asynchronous set/reset
+- Flop with synchronous set/reset
+- Flop with asynchronous and synchronous set/reset
+### **Flop with asynchronous set/reset**
+In this coding style asynchronous set/reset pin is not synchronized with the clock and it has got highest priority as compared to all other inputs. 
+As shown in the following figure when reset is set to 1, irrespective of all other inputs output becomes zero.
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF%20asyncres.PNG)
+The following figure shows schematic of Flop with asynchronous reset. 
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/Synth_asyncres.PNG)
+The verilog code is given by the following and it is importnant to observe the inputs which are present inside always statement. 
+ <pre><code>module dff\_asyncres ( input clk ,  input async\_reset , input d , output reg q );
+always @ (posedge clk , posedge async\_reset)
+begin
+    if(async\_reset)
+      q <= 1'b0;
+   else
+     q <= d;
+end </code></pre>
 
-
-
+### **Flop with synchronous set/reset**
+In this coding style asynchronous set/reset pin is synchronized with the clock and clock has got highest priority as compared to all other inputs. 
+As shown in the following figure when reset is set to 1, irrespective of all other inputs output becomes zero during the next clock edge.
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF_Syncres.PNG)
+The following figure shows schematic of Flop with synchronous reset. 
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/Synth_sync_res.PNG)
+The verilog code is given by the following and it is importnant to observe the inputs which are present inside always statement. 
+ <pre><code>module dff\_syncres ( input clk , input async\_reset , input sync\_reset , input d , output reg q );
+always @ (posedge clk )
+begin
+if (sync\_reset)
+      q <= 1'b0;
+else
+      q <= d;
+end
+endmodule</code></pre>
+### **Flop with synchronous and asynchronous set/reset**
+In this coding style Din is synchronized with clock whereas asynchronous reset pit is not synchronized.
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF_asyncres_syncres.PNG)
+The following figure shows synthesis schematic of the design.
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/Synth_async_sync.PNG)
+<pre><code>module dff\_asyncres\_syncres ( input clk , input async\_reset , input sync\_reset , input d , output reg q );
+always @ (posedge clk , posedge async\_reset)
+begin
+   if(async\_reset)
+      q <= 1'b0;
+  else if (sync\_reset)
+      q <= 1'b0;
+  else	
+      q <= d;
+end
+endmodule</code></pre>
 
