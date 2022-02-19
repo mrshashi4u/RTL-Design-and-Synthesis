@@ -1,3 +1,15 @@
+# Table of contents
+1. [Introduction to RTL design and Synthesis](1-introduction-to-rtl-design-and-synthesis)
+2. [Open Source tools for RTL Design and Synthesis](2-open-source-tools-for-rtl-design-and-synthesis)
+    1. [iverilog](i--iverilog)
+    2. [GTKWAVE](ii-gtkwave)
+    3. [YOSYS](iii--yosys)
+3. [Flop coding style and optimization techniques](3-flop-coding-style-and-optimization-techniques)
+    1. [Flop with asynchronous set/reset](flop-with-asynchronous-setreset)
+    2. [Flop with synchronous set/reset](flop-with-synchronous-setresett)
+    3. [Flop with asynchronous and synchronous set/reset](flop-with-synchronous-and-asynchronous-setreset)
+
+
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
 ## **1. Introduction to RTL design and Synthesis**
