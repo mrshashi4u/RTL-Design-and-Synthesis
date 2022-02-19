@@ -133,10 +133,15 @@ Optimization in VLSI digital circuits is required in order to design an efficien
 - Boolean logic optimization
 #### **Constant propagation**
 Let consider an the following combinational circuit: 
+
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/ex1_comb.PNG)
+
+
 In the above circuit, if the input A=0, then the output is complement of C irrespective of the input B. Hence the entire circuit can be replaced by an inverter.
-Let us look into somemore examples
-**Opt_Example 1:** 
+Let us look into somemore examples.
+
+**Optimization of boolean logic**</p>
+**Opt_Example 1:**
 As an example, consider a 2:1 mux. A 2:1 mux requires two AND gates, one OR gate, and one inverter to be implemented. As a result, a total of four logic gates are required. 
 
 Let us look into how optimization is performed with the following inputs.
