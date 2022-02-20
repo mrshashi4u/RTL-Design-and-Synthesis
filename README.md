@@ -22,8 +22,7 @@
 4. [**Day 4**: GLS, blocking v/s non-blocking, and synthesis-simulation mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	1. [4.1 GLS - Gate Level Simulation ](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	2. [4.2 Synthesis Simulation Mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#42-synthesis-simulation-mismatch)
-	3. [4.3 Blocking and Non Blocking statements]
-	
+
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
 ## **1. Introduction to RTL design and Synthesis**
@@ -547,7 +546,7 @@ The GLS simulation waveform is shown below.
 
 From the above synthesis waveform, there is a mismatch synthesis and simulation waveform. This is mainly due to signals in the sensitivity list.
 
-### **Blocking and Non Blocking statements**
+ **Blocking and Non Blocking statements**
 
 In a verilog code, blocking statements are in sequential order., where as non blocking statements are executed in concurrent fashion.
 let us consider the follwoing verilog example code.
@@ -569,7 +568,7 @@ The following figure shows the simulation output of above code. As it can be see
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/blocking_caveat_sim.PNG)
 
-The following figure shows the simulation output based on the Gate level netlist. The waveform shows the correct execution of the output.
+The following figure shows the simulation output based on the Gate level netlist. The waveform shows the correct execution of the output as compared to the previous output.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/blocking_caveat_GLN.PNG)
 
