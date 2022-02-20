@@ -19,6 +19,7 @@
 		2. [Optimization of boolean logic](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#optimization-of-boolean-logic)
 	2.  [Optimization of sequential circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#32-optimization-of-sequential-circuits)
 		1. [Optimization Sequential circuit using constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#optimization-sequential-circuit-using-constant-propagation)
+4. [**Day 4**: GLS, blocking v/s non-blocking, and synthesis-simulation mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-introduction-to-optimisation)
 	
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
@@ -442,6 +443,13 @@ The following figure show the synthesized output of the above logic.
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Counter_opt.PNG)
 
 As shown in the above figure, only one DFF is utilized in the design in contrast to 3-DFF's for a 3-bit counter. Hence the optimization results in reduced area and power. 
+
+## **4.GLS, blocking v/s non-blocking, and synthesis-simulation mismatch**
+### ***4.1 GLS - Gate level simulation***
+GLS stands for Gate level simulation. GLS is performed in order to check the logical equivalence of RTL code and the gate netlist. It also ensures timing of the design is met.
+
+	
+
 
 
 
