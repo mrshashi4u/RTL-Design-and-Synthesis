@@ -6,9 +6,9 @@
 		3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
     
 2. [**Day 2**: Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
-    1. [Introduction to .lib](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
-    2. [Heirarchial vs flat synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
-    3. [ Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
+    1. [Introduction to .lib](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#31-introduction-to-lib)
+    2. [Heirarchial vs flat synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#32-heirarchial-vs-flat-synthesis)
+    3. [ Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#33-flop-coding-style)
     	1. [Flop with asynchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
     	2. [Flop with synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-setreset)
     	3. [Flop with asynchronous and synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-and-asynchronous-setreset)
