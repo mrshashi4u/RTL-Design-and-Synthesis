@@ -338,10 +338,30 @@ endmodule
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/synt_seq4.PNG)
 
+**Sequential optimization of unused outputs**
 
+Let us consider following verilog code of an up counter.
 
+<pre><code>
 
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
 
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
 
+endmodule
+			
+</pre></code>
+
+In the above example, the output is assigned to LSB of counter value. Hence we can optimize the design for the required output so that additional hardware overhead can be minimized.
+			
+The following figure show the synthesized output of the above logic. 
 
 
