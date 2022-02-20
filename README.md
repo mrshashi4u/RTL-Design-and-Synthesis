@@ -205,6 +205,22 @@ module opt_check4 (input a , input b , input c , output y);
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Synt_opt_check4.PNG)
 
+### **4.2 Optimization of sequential circuits**
+
+- Constant Propagation
+- Retiming 
+- Cloning
+- State optimization
+
+We will restrict our discussion to sequential logic optimization in constant propagation.
+
+**Sequential Example-1**
+
+Consider a sequential circuit shown below
+
+![]()
+
+
 
 
 
