@@ -605,7 +605,7 @@ The below figure shows the quivalent logic circuit using mux
 
 Now, let us consider the cases where if constructs are not written properly.
 
-**Example1:**
+**Example-1:**
 
 Consider the below verilog code.
 
@@ -628,6 +628,30 @@ synthesized output shows D latch connected between input and output.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/if_ex1_synth.PNG)
 
+
+**Example-2**
+
+Consider a verilog code shown below.
+
+```
+module incomp_if2 (input i0 , input i1 , input i2 , input i3, output reg y);
+always @ (*)
+begin
+	if(i0)
+		y <= i1;
+	else if (i2)
+		y <= i3;
+end
+endmodule
+
+```
+
+Fig below show simulated waveform and synthesis results of the above code. In this we can observe when both I0 and I2 are zero, the output remains at either 0 or 1.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/if_ex2.PNG)
+
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/if_ex2_synth.PNG)
 
 
 
