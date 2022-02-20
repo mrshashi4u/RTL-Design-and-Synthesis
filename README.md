@@ -146,7 +146,7 @@ As an example, consider a 2:1 mux. A 2:1 mux requires two AND gates, one OR gate
 
 Let us look into how optimization is performed with the following inputs.
 
-![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Opt_check2.PNG)
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Ex2_mux.PNG)
 
 <pre><code>
 module opt_check (input a , input b , output y);
@@ -156,4 +156,58 @@ endmodule
 
 The synthesis of the above design shows that, the 2:1 mux is replaced with an OR gate and hence results in an optimization.
 
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/opt_Check.PNG)
+
+**Opt_Example 2:**
+
+Let us consider the following mux based logic.
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Opt_check2.PNG)
+
+In the above logic circuit, the optimization leads to OR gate.
+
+<pre><code>
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+</code></pre>
+
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Synt_opt_check2.PNG)
+
+**Opt_Example 3:**
+
+In the following example, two mux are connected to form a logic, and it requires total 8 logic gates to implement the mux.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Opt_check3.PNG)
+
+In the above logic circuit, the optimization leads to three inputs AND gate.
+
+<pre><code>
+module opt_check3 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+</code></pre>
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Synt_opt_check3.PNG)
+
+**Opt_Example 4:**
+
+In this example, two mux and two gates are connected to form a logic.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/opt_check4.PNG)
+
+In the above logic circuit, the optimization leads top XNOR gate
+
+<pre><code>
+module opt_check4 (input a , input b , input c , output y);
+ 	assign y = a?(b?(a & c ):c):(!c);
+ endmodule
+</code></pre>
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Synt_opt_check4.PNG)
+
+
+
+
+
+
+
