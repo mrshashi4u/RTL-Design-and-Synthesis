@@ -507,7 +507,7 @@ The resultant waveform is shown below. It can be observed Gate level simulation 
 *** Missing Sensitivity list***
 
 Let us lookinto the following verilog code example
-'''
+```
 
 module bad_mux (input i0 , input i1 , input sel , output reg y);
 always @ (sel)
@@ -518,7 +518,7 @@ begin
 		y <= i0;
 end
 endmodule
-'''
+```
 
 In the above code, sensitivity list includes only the select line, hence output is not updated even though the inputs changes. This is observed in the simulation waveform below.
 
