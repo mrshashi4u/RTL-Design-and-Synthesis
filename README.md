@@ -21,7 +21,8 @@
 		1. [Optimization Sequential circuit using constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#optimization-sequential-circuit-using-constant-propagation)
 4. [**Day 4**: GLS, blocking v/s non-blocking, and synthesis-simulation mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	1. [4.1 GLS - Gate Level Simulation ](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
-	2. [4.1 Synthesis Simulation Mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#42-synthesis-simulation-mismatch)
+	2. [4.2 Synthesis Simulation Mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#42-synthesis-simulation-mismatch)
+	3. [4.3 Blocking and Non Blocking statements]
 	
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
@@ -504,6 +505,7 @@ The resultant waveform is shown below. It can be observed Gate level simulation 
  Synthesis Simulation Mismatch(SSM) is mainly due to two reasons.
  - Missing sensititivity list
  - Blocking and non blocking statements
+ 
 *** Missing Sensitivity list***
 
 Let us lookinto the following verilog code example
@@ -544,6 +546,34 @@ The GLS simulation waveform is shown below.
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/bad_mux_GLS.PNG)
 
 From the above synthesis waveform, there is a mismatch synthesis and simulation waveform. This is mainly due to signals in the sensitivity list.
+
+### **Blocking and Non Blocking statements**
+
+In a verilog code, blocking statements are in sequential order., where as non blocking statements are executed in concurrent fashion.
+let us consider the follwoing verilog example code.
+```
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+	d = x & c;
+	x = a | b;
+end
+endmodule
+
+```
+
+In the above example the output d is evaluated first and x is evaluated next. Therefore the output d is evaluated based on the previous value of x. This creates a mismatch between Synthesis and Simulation output.
+
+The following figure shows the simulation output of above code. As it can be seen in the output waveform, the output y is evaluated based on the previous values of a and b.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/blocking_caveat_sim.PNG)
+
+The following figure shows the simulation output based on the Gate level netlist.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/blocking_caveat_GLN.PNG)
+
+
 
 
 
