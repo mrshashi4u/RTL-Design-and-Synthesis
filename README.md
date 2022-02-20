@@ -1,6 +1,6 @@
 # Table of contents
 1. [**Day 1**:  Introduction to RTL design and Synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/README.md#1-introduction-to-rtl-design-and-synthesis)
-	1. [Open Source tools for RTL Design and Synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#2-open-source-tools-for-rtl-design-and-synthesis)
+	1. [Open Source tools for RTL Design and Synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#11-open-source-tools-for-rtl-design-and-synthesis)
 		1. [iverilog](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#i--iverilog)
 		2. [GTKWAVE](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#ii-gtkwave)
 		3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
@@ -78,13 +78,13 @@ Table 2.4 List of commands used for RTL Synthesis
 |`show`|To display gate level schematic of the design|
 |`write\_verilog*  verilog\_file\_netlist.v`|To write netlist into a verilog file.|
 
-##**Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style**
+##**2. Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style**
 
-### **3.1. Introduction to .lib**
+### **2.1. Introduction to .lib**
 
-### **3.2. Heirarchial vs flat synthesis**
+### **2.2. Heirarchial vs flat synthesis**
 
-### **3.3. Flop coding style**
+### **2.3. Flop coding style**
 Flops are introduced between the combinational circuits to avoid glitches in the circuit.
 
 There are mainly three flop coding styles which are -
@@ -141,9 +141,9 @@ begin
 end
 endmodule</code></pre>
 
-## **4. Introduction to optimisation**
+## **3. Introduction to optimisation**
 Optimization in VLSI digital circuits is required in order to design an efficient circuit in terms of area and power.
-### **4.1 Optimization of combinational circuits**
+### **3.1 Optimization of combinational circuits**
  In combinational circuit design optimization is done at two levels.
 - Constant propagation
 - Boolean logic optimization
@@ -221,7 +221,7 @@ module opt_check4 (input a , input b , input c , output y);
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Synt_opt_check4.PNG)
 
-### **4.2 Optimization of sequential circuits**
+### **3.2 Optimization of sequential circuits**
 
 - Constant Propagation
 - Retiming 
