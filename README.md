@@ -220,15 +220,55 @@ Consider a sequential circuit shown below
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Seq1.PNG) 
 
-In the above circuit, if reset is enabled then Q = 0 else Q =1 since D input is set to 1. The same can be verified in the simulated waveform shown below.
+In the above circuit, if asynchronous reset is enabled then Q = 0 irrespective of clock, else Q =1 since D input is set to 1. The same can be verified in the simulated waveform shown below.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq1_wave.PNG)
 
-The following figure shows the synthesis of the above circuit.
+The following figure shows the synthesis of the above circuit. As it can be seen in the above figure no optimization can be done with the design.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq1_synth.PNG)
 
+**Sequential Example-2**
 
+Consider an another sequential circuit shown below
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq2.PNG) 
+
+In the above circuit, if the asynchronous set is enabled then Q = 1 and the output remains at the same state, since D input is set to 1. The same can be verified in the simulated waveform shown below.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq2_wave.PNG)
+
+As shown in the wave form, the output remains at logic 1, irrespective of states of the other inputs. Hence the above design can be replaced by a simple buffer there by optimizing power and area.
+
+The following figure shows the synthesis of the above circuit. As it can be seen in the synthesis design, optimization is performed by in synthesis stage by replacing the entire design by a simple wire buffer.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/synt_seq2.PNG)
+
+**Sequential Example-3**
+
+Consider an another sequential circuit shown below
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq3.PNG) 
+The above circuit consists of two asynchronous set and reset DFF. Hence the optimization can't be done in the above design. 
+
+
+The following figure shows the synthesis of the above circuit. As it can be seen in the synthesis design, optimization is performed  in synthesis stage by replacing the entire design by a simple wire buffer.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/synt_seq3.PNG)
+
+**Sequential Example-4**
+
+In the design sequential example - 3, the optimization can be achieved by replacing asynchronous **reset DFF** by asynchronous **set DFF** which is as shown in the below example.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq4.PNG) 
+
+
+The above circuit consists of two asynchronous set DFF's. Hence the output remains at logic irreseprctive of clock. Hence optimization in the above design results in a buffer. 
+
+
+The following figure shows the synthesis of the above circuit. As it can be seen in the synthesis design, the two flipflops are replaced by two buffers.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/synt_seq4.PNG)
 
 
 
