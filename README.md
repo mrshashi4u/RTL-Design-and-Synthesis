@@ -5,7 +5,7 @@
 		2. [GTKWAVE](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#ii-gtkwave)
 		3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
     
-2. [**Day 2**:Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
+2. [**Day 2**: Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
     1. [Introduction to .lib](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
     2. [Heirarchial vs flat synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
     3. [ Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
@@ -26,9 +26,9 @@
 Register Transfer Logic (RTL) is used to capture logic in design phase of the integrated circuit design cycle. A logic synthesis tool converts an RTL description written in Hardware Description Language (Verilog/VHDL) to a gate-level description of the circuit. Placement and routing tools use the synthesis outputs to generate a physical layout. The following figure shows the flow of RTL synthesis. 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/My%20drawings/RTL%20design%20flow.PNG)
 
-## **2. Open Source tools for RTL Design and Synthesis**
+### **1.1. Open Source tools for RTL Design and Synthesis**
 
-### **I.  iverilog:** 
+#### **I.  iverilog:** 
 Icarus Verilog(iverilog)* is a Verilog simulator used to verify functional description of a design. It functions as a compiler, converting Verilog source code into a target format. VCD (Value Change Dump) is a standard dump format for Verilog that dumps the status of the design as it simulates. The iverilog simulator takes a verilog design file and its test bench as inputs. The following figure illustrates the inputs and outputs of iverilog simulator.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/My%20drawings/iverilog.PNG)
@@ -46,7 +46,7 @@ Table 2.2 : List of commands used in iverilog
 |  `iverilog` |<p>To compile verilog design file and testbench file .</p><p>Ex: iverilog and21.v tb\_and21.v</p>|
 |  `./a.out`|To generate VCD file|
 
-### **II. GTKWAVE:** 
+#### **II. GTKWAVE:** 
 
 GTKWave is a VCD waveform viewer based on the GTK library. This viewer support VCD and LXT formats for signal dumps
 
@@ -54,7 +54,7 @@ GTKWave is a VCD waveform viewer based on the GTK library. This viewer support 
 
 Command to invoke waveform: `gtkwave veilog\_file.VCD`
 
-### **III.  YOSYS**
+#### **III.  YOSYS**
 
 Yosys is an open source RTL synthesis tool which takes verilog file of a design and technology library file(.lib) as inputs and generates gate level netlist corresponding the functional behaviour of the design
 
@@ -78,7 +78,13 @@ Table 2.4 List of commands used for RTL Synthesis
 |`show`|To display gate level schematic of the design|
 |`write\_verilog*  verilog\_file\_netlist.v`|To write netlist into a verilog file.|
 
-## **3. Flop coding style**
+##**Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style**
+
+### **3.1. Introduction to .lib**
+
+### **3.2. Heirarchial vs flat synthesis**
+
+### **3.3. Flop coding style**
 Flops are introduced between the combinational circuits to avoid glitches in the circuit.
 
 There are mainly three flop coding styles which are -
@@ -86,7 +92,7 @@ There are mainly three flop coding styles which are -
 - Flop with asynchronous set/reset
 - Flop with synchronous set/reset
 - Flop with asynchronous and synchronous set/reset
-### **Flop with asynchronous set/reset**
+#### **Flop with asynchronous set/reset**
 In this coding style asynchronous set/reset pin is not synchronized with the clock and it has got highest priority as compared to all other inputs. 
 As shown in the following figure when reset is set to 1, irrespective of all other inputs output becomes zero.
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF%20asyncres.PNG)
@@ -102,7 +108,7 @@ begin
      q <= d;
 end </code></pre>
 
-### **Flop with synchronous set/reset**
+#### **Flop with synchronous set/reset**
 In this coding style asynchronous set/reset pin is synchronized with the clock and clock has got highest priority as compared to all other inputs. 
 As shown in the following figure when reset is set to 1, irrespective of all other inputs output becomes zero during the next clock edge.
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF_Syncres.PNG)
@@ -118,7 +124,7 @@ else
       q <= d;
 end
 endmodule</code></pre>
-### **Flop with synchronous and asynchronous set/reset**
+#### **Flop with synchronous and asynchronous set/reset**
 In this coding style Din is synchronized with clock whereas asynchronous reset pit is not synchronized.
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF_asyncres_syncres.PNG)
 The following figure shows synthesis schematic of the design.
