@@ -618,5 +618,16 @@ begin
 end
 endmodule
 ```
+In the above example if structure is incomplete. Let us check its waveform and synthesized output.
+
+As shown in the waveform below, output retains its previous state if i0=0, hence it acts like a latch.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/if_ex1.PNG)
+
+synthesized output shows D latch connected between input and output.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/if_ex1_synth.PNG)
+
+
 
 
