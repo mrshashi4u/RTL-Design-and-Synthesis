@@ -445,10 +445,63 @@ The following figure show the synthesized output of the above logic.
 As shown in the above figure, only one DFF is utilized in the design in contrast to 3-DFF's for a 3-bit counter. Hence the optimization results in reduced area and power. 
 
 ## **4.GLS, blocking v/s non-blocking, and synthesis-simulation mismatch**
-### ***4.1 GLS - Gate level simulation***
+### **4.1 GLS - Gate level simulation**
 GLS stands for Gate level simulation. GLS is performed in order to check the logical equivalence of RTL code and the gate netlist. It also ensures timing of the design is met.
 
+Let us consider an example, the following code shows logic of ternary operator.
+<pre><code>
+
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+	assign y = sel?i1:i0;
+	endmodule
 	
+</pre></code>
+
+The following commands are executed to simulate the design
+
+```
+iverilog ternary_operator_mux.v tb_ternary_operator_mux.v 
+./a.out
+gtkwave tb_ternary_operator_mux.vcd 
+```
+The following image shows the simulation of ternary operator. It can observed in the waveform window, the logic of ternary operator is same as 2:1 mux.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/ternary%20sim.PNG)
+
+Now, let us perform Gate level simulation of ternary operator. 
+
+The following code is used to generate Gate Level Netlist.
+
+```
+read_liberty -lib ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog ./verilog_files/ternary_operator_mux.v 
+synth -top ternary_operator_mux 
+show
+history
+abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+write_verilog -noattr ternary_mux_netlist.v
+```
+The following figure shows the synthesis of ternary mux
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/Synth_mux.PNG)
+
+```
+iverilog ./my_lib/verilog_model/primitives.v ./my_lib/verilog_model/sky130_fd_sc_hd.v ternary_mux_netlist.v ./verilog_files/tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+```
+
+The above code is used simulated gate level netlist by importing primitives library into verilog.
+The resultant waveform is shown below. It can be observed Gate level simulation matches with RTL simulation.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/ternary%20GS.PNG)
+
+
+
+
+
+
 
 
 
