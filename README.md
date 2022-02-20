@@ -523,3 +523,27 @@ endmodule
 In the above code, sensitivity list includes only the select line, hence output is not updated even though the inputs changes. This is observed in the simulation waveform below.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/bad_mux%20simu.PNG)
+
+Now, let us look into gate level simulation of the above design.
+The following commands are used to generate gate level netlist.
+```
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog bad_mux.v 
+synth -top bad_mux 
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+write_verilog bad_mux_netlist.v
+```
+The following execution of commands is performed for GLS 
+
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_netlist.v tb_bad_mux.v
+  154  ./a.out
+  155  gtkwave tb_bad_mux.vcd
+```
+The GLS simulation waveform is shown below.
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/bad_mux_GLS.PNG)
+
+From the above synthesis waveform, there is a mismatch synthesis and simulation waveform. This is mainly due to signals in the sensitivity list.
+
+
+
