@@ -5,19 +5,19 @@
 		2. [GTKWAVE](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#ii-gtkwave)
 		3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
     
-2. [**Day 2**: Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
-    1. [Introduction to .lib](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#31-introduction-to-lib)
-    2. [Heirarchial vs flat synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#32-heirarchial-vs-flat-synthesis)
-    3. [ Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#33-flop-coding-style)
+2. [**Day 2**: Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style]https://github.com/mrshashi4u/RTL-Design-and-Synthesis#2-introduction-to-lib-heirarchial-vs-flat-synthesis-and-flop-coding-style)
+    1. [Introduction to .lib](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#21-introduction-to-lib)
+    2. [Heirarchial vs flat synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#22-heirarchial-vs-flat-synthesis)
+    3. [ Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#23-flop-coding-style)
     	1. [Flop with asynchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
     	2. [Flop with synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-setreset)
     	3. [Flop with asynchronous and synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-and-asynchronous-setreset)
     	
-3. [**Day 3**:  Introduction to optimisation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#4-introduction-to-optimisation)
-	1. [Optimization of combinational circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-optimization-of-combinational-circuits)
+3. [**Day 3**:  Introduction to optimisation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-introduction-to-optimisation)
+	1. [Optimization of combinational circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#31-optimization-of-combinational-circuits)
 		1. [Constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#constant-propagation)
 		2. [Optimization of boolean logic](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#optimization-of-boolean-logic)
-	2.  [Optimization of sequential circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#42-optimization-of-sequential-circuits)
+	2.  [Optimization of sequential circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#32-optimization-of-sequential-circuits)
 		1. [Optimization Sequential circuit using constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/edit/main/README.md#optimization-sequential-circuit-using-constant-propagation)
 	
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
