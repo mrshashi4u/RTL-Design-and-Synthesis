@@ -18,7 +18,7 @@
 		1. [Constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#constant-propagation)
 		2. [Optimization of boolean logic](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#optimization-of-boolean-logic)
 	2.  [Optimization of sequential circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#32-optimization-of-sequential-circuits)
-		1. [Optimization Sequential circuit using constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/edit/main/README.md#optimization-sequential-circuit-using-constant-propagation)
+		1. [Optimization Sequential circuit using constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#optimization-sequential-circuit-using-constant-propagation)
 	
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
