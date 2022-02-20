@@ -22,6 +22,7 @@
 4. [**Day 4**: GLS, blocking v/s non-blocking, and synthesis-simulation mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	1. [4.1 GLS - Gate Level Simulation ](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	2. [4.2 Synthesis Simulation Mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#42-synthesis-simulation-mismatch)
+5. [**Day 5**: If Case Statements and for loop & for generate statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
@@ -574,7 +575,48 @@ The following figure shows the simulation output based on the Gate level netlist
 
 
 
+## **5. If Case Statements and for loop & for generate statements**
 
+### **5.1. If Statement**
 
+If statements are the highest priority conditional statements. They invoke MUX when written properly else they infer **Latches**
+
+Consider an example code below.
+```
+if(cond1)
+	begin 
+		state1
+		
+	end
+elseif(cond2)
+	
+	begin
+		state2
+	end
+else
+	begin 
+		state2
+	end
+endif
+```
+
+The below figure shows the quivalent logic circuit using mux
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/ifese_mux.PNG)
+
+Now, let us consider the cases where if constructs are not written properly.
+
+**Example1:**
+
+Consider the below verilog code.
+
+```
+module incomp_if (input i0 , input i1 , input i2 , output reg y);
+always @ (*)
+begin
+	if(i0)
+		y <= i1;
+end
+endmodule
+```
 
 
