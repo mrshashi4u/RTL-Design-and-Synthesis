@@ -218,7 +218,17 @@ We will restrict our discussion to sequential logic optimization in constant pro
 
 Consider a sequential circuit shown below
 
-![]()
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Seq1.PNG) 
+
+In the above circuit, if reset is enabled then Q = 0 else Q =1 since D input is set to 1. The same can be verified in the simulated waveform shown below.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq1_wave.PNG)
+
+The following figure shows the synthesis of the above circuit.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq1_synth.PNG)
+
+
 
 
 
