@@ -78,7 +78,7 @@ Table 2.4 List of commands used for RTL Synthesis
 |`show`|To display gate level schematic of the design|
 |`write\_verilog*  verilog\_file\_netlist.v`|To write netlist into a verilog file.|
 
-##**2. Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style**
+## **2. Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style**
 
 ### **2.1. Introduction to .lib**
 
