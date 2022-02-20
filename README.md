@@ -569,9 +569,11 @@ The following figure shows the simulation output of above code. As it can be see
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/blocking_caveat_sim.PNG)
 
-The following figure shows the simulation output based on the Gate level netlist.
+The following figure shows the simulation output based on the Gate level netlist. The waveform shows the correct execution of the output.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/blocking_caveat_GLN.PNG)
+
+
 
 
 
