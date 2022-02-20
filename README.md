@@ -1,15 +1,17 @@
 # Table of contents
-1. [Introduction to RTL design and Synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/README.md#1-introduction-to-rtl-design-and-synthesis)
-2. [Open Source tools for RTL Design and Synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#2-open-source-tools-for-rtl-design-and-synthesis)
-    1. [iverilog](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#i--iverilog)
-    2. [GTKWAVE](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#ii-gtkwave)
-    3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
-3. [Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
-    1. [Flop with asynchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
-    2. [Flop with synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-setreset)
-    3. [Flop with asynchronous and synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-and-asynchronous-setreset)
-
-
+Day1:-	1. [Introduction to RTL design and Synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/README.md#1-introduction-to-rtl-design-and-synthesis)
+	2. [Open Source tools for RTL Design and Synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#2-open-source-tools-for-rtl-design-and-synthesis)
+    		1. [iverilog](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#i--iverilog)
+    		2. [GTKWAVE](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#ii-gtkwave)
+    		3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
+Day2:-	3. [Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#3-flop-coding-style-and-optimization-techniques)
+    		1. [Flop with asynchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-asynchronous-setreset)
+    		2. [Flop with synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-setreset)
+    		3. [Flop with asynchronous and synchronous set/reset](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#flop-with-synchronous-and-asynchronous-setreset)
+Day3:-	4. [ Introduction to optimisation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#4-introduction-to-optimisation)
+		1. [Optimization of combinational circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-optimization-of-combinational-circuits)
+			(i)[Constant Propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#constant-propagation)
+			(ii)[Optimization of boolean logic]()
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
 ## **1. Introduction to RTL design and Synthesis**
@@ -140,7 +142,7 @@ Let consider an the following combinational circuit:
 In the above circuit, if the input A=0, then the output is complement of C irrespective of the input B. Hence the entire circuit can be replaced by an inverter.
 Let us look into somemore examples.
 
-**Optimization of boolean logic**</p>
+#### **Optimization of boolean logic**</p>
 **Opt_Example 1:**
 As an example, consider a 2:1 mux. A 2:1 mux requires two AND gates, one OR gate, and one inverter to be implemented. As a result, a total of four logic gates are required. 
 
@@ -366,6 +368,6 @@ The following figure show the synthesized output of the above logic.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Counter_opt.PNG)
 
-As shown in the above figure, only one DFF is utilized in the design in contrast 3-DFF's for a 3-bit counter. Hence the optimization results in reduced area and power.
+As shown in the above figure, only one DFF is utilized in the design in contrast to 3-DFF's for a 3-bit counter. Hence the optimization results in reduced area and power.
 
 
