@@ -230,6 +230,8 @@ module opt_check4 (input a , input b , input c , output y);
 
 We will restrict our discussion to sequential logic optimization in constant propagation.
 
+#### **Optimization Sequential circuit using constant propagation**
+
 **Sequential Example-1**
 
 Consider a sequential circuit shown below
