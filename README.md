@@ -364,4 +364,8 @@ In the above example, the output is assigned to LSB of counter value. Hence we c
 			
 The following figure show the synthesized output of the above logic. 
 
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Counter_opt.PNG)
+
+As shown in the above figure, only one DFF is utilized in the design in contrast 3-DFF's for a 3-bit counter. Hence the optimization results in reduced area and power.
+
 
