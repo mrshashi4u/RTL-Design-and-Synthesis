@@ -102,11 +102,44 @@ The naming convention is as follows
 |025|25c Temperature|
 |1v80|1.8V|
 
-![]https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/lib.PNG
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/lib.PNG)
 
 The above clip from .lib files shows the information of TIming, power area and other details of standard cell AND gate.
 
 ### **2.2. Heirarchial vs flat synthesis**
+
+**Hierarchial Synthesis**
+
+Submodule level synthesis
+
+In a design with multiple instances we can use this to synthesize once and replicate it many times and stich together to obtain the netlist file.
+On the other hand big designs can be broken down synthesised and merged later into a single netlist.
+
+Verilog code of Half Adder is shown below. It consists of a heirarchial structure.
+
+<pre><code>
+module sub_module2 (input a, input b, output y);
+assign y = a | b;
+endmodule
+module sub_module1 (input a, input b, output y);
+assign y = a&b;
+endmodule
+module multiple_modules (input a, input b, input c , output y);
+	wire net1;
+	sub_module1 u1(.a(a),.b(b),.y(net1));  //net1 = a&b
+	sub_module2 u2(.a(net1),.b(c),.y(y));  //y = net1|c ,ie y = a&b + c;
+endmodule
+</pre></code>
+
+The following fig shows the heirarchy of the multiple modules.
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Multiple%20modules.PNG)
+
+**Flatten Synthesis**
+
+
+`flatten` is the command to flatten out the heirarchy and this is the resultant structure after removing heirarchy of the modules.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Flattern.PNG)
 
 ### **2.3. Flop coding style**
 Flops are introduced between the combinational circuits to avoid glitches in the circuit.
@@ -408,6 +441,7 @@ The following figure show the synthesized output of the above logic.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Counter_opt.PNG)
 
-As shown in the above figure, only one DFF is utilized in the design in contrast to 3-DFF's for a 3-bit counter. Hence the optimization results in reduced area and power.
+As shown in the above figure, only one DFF is utilized in the design in contrast to 3-DFF's for a 3-bit counter. Hence the optimization results in reduced area and power. 
+
 
 
