@@ -220,7 +220,21 @@ Consider a sequential circuit shown below
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/Seq1.PNG) 
 
-In the above circuit, if asynchronous reset is enabled then Q = 0 irrespective of clock, else Q =1 since D input is set to 1. The same can be verified in the simulated waveform shown below.
+In the above circuit, if asynchronous reset is enabled then Q = 0 irrespective of clock, else Q =1 since D input is set to 1. 
+
+The same can be verified in the simulated waveform shown below with verilog code.
+
+<pre><code>
+module dff_const1(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+endmodule
+</pre></code>
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq1_wave.PNG)
 
@@ -234,7 +248,20 @@ Consider an another sequential circuit shown below
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq2.PNG) 
 
-In the above circuit, if the asynchronous set is enabled then Q = 1 and the output remains at the same state, since D input is set to 1. The same can be verified in the simulated waveform shown below.
+In the above circuit, if the asynchronous set is enabled then Q = 1 and the output remains at the same state, since D input is set to 1. The same can be verified in the simulated waveform shown below along with verilog.
+
+<pre><code>
+module dff_const2(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+endmodule
+</pre></code>
+
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/seq2_wave.PNG)
 
@@ -252,7 +279,26 @@ Consider an another sequential circuit shown below
 The above circuit consists of two asynchronous set and reset DFF. Hence the optimization can't be done in the above design. 
 
 
-The following figure shows the synthesis of the above circuit. As it can be seen in the synthesis design, optimization is performed  in synthesis stage by replacing the entire design by a simple wire buffer.
+The following figure shows the synthesis of the above circuit along with verilog code. As it can be seen in the synthesis design, optimization is performed  in synthesis stage by replacing the entire design by a simple wire buffer.
+
+<pre><code>
+module dff_const3(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+</pre></code>
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/synt_seq3.PNG)
 
@@ -266,7 +312,29 @@ In the design sequential example - 3, the optimization can be achieved by replac
 The above circuit consists of two asynchronous set DFF's. Hence the output remains at logic irreseprctive of clock. Hence optimization in the above design results in a buffer. 
 
 
-The following figure shows the synthesis of the above circuit. As it can be seen in the synthesis design, the two flipflops are replaced by two buffers.
+The following figure shows the synthesis of the above circuit along with the code. As it can be seen in the synthesis design, the two flipflops are replaced by two buffers.
+
+<pre><code>
+module dff_const4(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b1;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+</pre></code>
+
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/synt_seq4.PNG)
 
