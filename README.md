@@ -5,7 +5,7 @@
 		2. [GTKWAVE](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#ii-gtkwave)
 		3. [YOSYS](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#iii--yosys)
     
-2. [**Day 2**: Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style]https://github.com/mrshashi4u/RTL-Design-and-Synthesis#2-introduction-to-lib-heirarchial-vs-flat-synthesis-and-flop-coding-style)
+2. [**Day 2**: Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#2-introduction-to-lib-heirarchial-vs-flat-synthesis-and-flop-coding-style)
     1. [Introduction to .lib](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#21-introduction-to-lib)
     2. [Heirarchial vs flat synthesis](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#22-heirarchial-vs-flat-synthesis)
     3. [ Flop coding style](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#23-flop-coding-style)
