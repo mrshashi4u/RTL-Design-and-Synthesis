@@ -81,6 +81,30 @@ Table 2.4 List of commands used for RTL Synthesis
 ## **2. Introduction to .lib, Heirarchial vs flat synthesis and Flop coding style**
 
 ### **2.1. Introduction to .lib**
+ 
+***.lib*** stands for Liberty Timing File. 
+The .lib file is an ASCII representation of the timing and power parameters associated with any cell in a particular semiconductor technology.It consists of timing and power parameters are obtained by simulating the cells under a variety of conditions (PVT) and the data is represented in the .lib format
+The .lib file contains timing models and data to calculate
+- I/O delay paths
+- Timing check values
+- Interconnect delays
+
+We use an open source .lib file from Google Skywater sky130_fd_sc_hd__tt_025C_1v80.lib.
+The naming convention is as follows
+
+|**abbrevation**|**Description**|
+| :-: | :-: |
+|sky130|Represents technology node 130nm|
+|fd|Foundary Dependent|
+|sc|Standard cell|
+|hd|High Desnsity|
+|tt|Typical Process Corner|
+|025|25c Temperature|
+|1v80|1.8V|
+
+![]https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D3/lib.PNG
+
+The above clip from .lib files shows the information of TIming, power area and other details of standard cell AND gate.
 
 ### **2.2. Heirarchial vs flat synthesis**
 
