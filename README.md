@@ -20,6 +20,8 @@
 	2.  [Optimization of sequential circuits](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#32-optimization-of-sequential-circuits)
 		1. [Optimization Sequential circuit using constant propagation](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#optimization-sequential-circuit-using-constant-propagation)
 4. [**Day 4**: GLS, blocking v/s non-blocking, and synthesis-simulation mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
+	1. [4.1 GLS - Gate Level Simulation ](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
+	2. [4.1 Synthesis Simulation Mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
@@ -497,12 +499,27 @@ The resultant waveform is shown below. It can be observed Gate level simulation 
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/ternary%20GS.PNG)
 
+### 4.2 Synthesis Simulation Mismatch
 
+ Synthesis Simulation Mismatch(SSM) is mainly due to two reasons.
+ - Missing sensititivity list
+ - Blocking and non blocking statements
+*** Missing Sensitivity list***
 
+Let us lookinto the following verilog code example
+'''
 
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+'''
 
+In the above code, sensitivity list includes only the select line, hence output is not updated even though the inputs changes. This is observed in the simulation waveform below.
 
-
-
-
-
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D4/bad_mux%20simu.PNG)
