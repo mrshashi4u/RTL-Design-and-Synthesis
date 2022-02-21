@@ -26,7 +26,7 @@
 	1. [IF statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#51-if-statement) 
 	2. [CASE statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#52-case-statement)
 	3. [looping constructs](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#53-looping-constructs)
-6. [Acknoledgements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#5-if-case-statements-and-for-loop--for-generate-statements)
+6. [Acknowledgement](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#5-if-case-statements-and-for-loop--for-generate-statements)
 
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
@@ -742,7 +742,7 @@ There are two types of looping constructs
 - for loop constructs
 - for generate loop constructs
 
-**for loop constructs**
+**for loop constructs**</p>
 *for* loops are placed inside the always statement. This loop is not going to instantiate any hardware.
 Consider the following example of loop construct.
 ```
@@ -765,7 +765,7 @@ The above code represents a 4:1 Mux. The same can be verified by synthesizing th
 The figure below shows synthesized output of the above code.
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/mux_generate.PNG)
 
-**for generate loop constructs**
+**for generate loop constructs**</p>
 *for* generate statements are used to instantiate a hardware module for a large number of instantiations. Ex: to instantiate an AND gate 100 times. They should never be used inside an always block.
 
 An example of using for..generate statements is given below. We use generate statements and for loop to implement an 8-bit Ripple Carry Adder which uses multiple instantiations of Full Adder block.
@@ -798,3 +798,9 @@ The following figure shows the output of simulation.
 The following figure shows the synthesised output in which FA modules are instantiated.
 		
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/rca_synth.PNG)
+		
+		
+## **Acknowledgement**
+ 
+[Kunal Ghosh](https://github.com/kunalg123)		
+
