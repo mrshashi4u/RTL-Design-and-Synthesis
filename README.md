@@ -26,7 +26,7 @@
 	1. [IF statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#51-if-statement) 
 	2. [CASE statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#52-case-statement)
 	3. [looping constructs](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#53-looping-constructs)
-6. [Acknowledgement](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#5-if-case-statements-and-for-loop--for-generate-statements)
+6. [Acknowledgement](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/README.md#acknowledgement)
 
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
