@@ -22,7 +22,11 @@
 4. [**Day 4**: GLS, blocking v/s non-blocking, and synthesis-simulation mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	1. [4.1 GLS - Gate Level Simulation ](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
 	2. [4.2 Synthesis Simulation Mismatch](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#42-synthesis-simulation-mismatch)
-5. [**Day 5**: If Case Statements and for loop & for generate statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#41-gls---gate-level-simulation)
+5. [**Day 5**: If Case Statements and for loop & for generate statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#5-if-case-statements-and-for-loop--for-generate-statements)
+	1. [IF statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#51-if-statement) 
+	2. [CASE statements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#52-case-statement)
+	3. [looping constructs](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#53-looping-constructs)
+6. [Acknoledgements](https://github.com/mrshashi4u/RTL-Design-and-Synthesis#5-if-case-statements-and-for-loop--for-generate-statements)
 
 # RTL-Design-and-Synthesis using opensource Skywater130 PDK
 
@@ -735,8 +739,8 @@ And also it can be observed from the synthesized output, no D latch is inferred.
 
 There are two types of looping constructs 
 
--for loop constructs
--for generate loop constructs
+- for loop constructs
+- for generate loop constructs
 
 **for loop constructs**
 *for* loops are placed inside the always statement. This loop is not going to instantiate any hardware.
@@ -759,10 +763,38 @@ endmodule
 The above code represents a 4:1 Mux. The same can be verified by synthesizing this design.
 
 The figure below shows synthesized output of the above code.
-
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/mux_generate.PNG)
 
 **for generate loop constructs**
+*for* generate statements are used to instantiate a hardware module for a large number of instantiations. Ex: to instantiate an AND gate 100 times. They should never be used inside an always block.
 
-The above code represents an 4:1 Mux. The same can be verified by synthesizing this design.
-T
-It is used outside the always constructs and used to instantiate an hardware.
+An example of using for..generate statements is given below. We use generate statements and for loop to implement an 8-bit Ripple Carry Adder which uses multiple instantiations of Full Adder block.
+
+```
+module rca (input [7:0] num1 , input [7:0] num2 , output [8:0] sum);
+wire [7:0] int_sum;
+wire [7:0]int_co;
+
+genvar i;
+generate
+	for (i = 1 ; i < 8; i=i+1) begin
+		fa u_fa_1 (.a(num1[i]),.b(num2[i]),.c(int_co[i-1]),.co(int_co[i]),.sum(int_sum[i]));
+	end
+
+endgenerate
+fa u_fa_0 (.a(num1[0]),.b(num2[0]),.c(1'b0),.co(int_co[0]),.sum(int_sum[0]));
+
+
+assign sum[7:0] = int_sum;
+assign sum[8] = int_co[7];
+endmodule
+
+```
+		
+The following figure shows the output of simulation. 
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/rca.PNG)
+		
+The following figure shows the synthesised output in which FA modules are instantiated.
+		
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/rca_synth.PNG)
