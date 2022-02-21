@@ -153,13 +153,22 @@ There are mainly three flop coding styles which are -
 - Flop with asynchronous set/reset
 - Flop with synchronous set/reset
 - Flop with asynchronous and synchronous set/reset
+
 #### **Flop with asynchronous set/reset**
+
 In this coding style asynchronous set/reset pin is not synchronized with the clock and it has got highest priority as compared to all other inputs. 
 As shown in the following figure when reset is set to 1, irrespective of all other inputs output becomes zero.
+
+
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF%20asyncres.PNG)
+
+
 The following figure shows schematic of Flop with asynchronous reset. 
+
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/Synth_asyncres.PNG)
+
 The verilog code is given by the following and it is importnant to observe the inputs which are present inside always statement. 
+
  <pre><code>module dff\_asyncres ( input clk ,  input async\_reset , input d , output reg q );
 always @ (posedge clk , posedge async\_reset)
 begin
@@ -170,12 +179,19 @@ begin
 end </code></pre>
 
 #### **Flop with synchronous set/reset**
+	     
 In this coding style asynchronous set/reset pin is synchronized with the clock and clock has got highest priority as compared to all other inputs. 
+	      
 As shown in the following figure when reset is set to 1, irrespective of all other inputs output becomes zero during the next clock edge.
+	      
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF_Syncres.PNG)
+	      
 The following figure shows schematic of Flop with synchronous reset. 
+	      
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/Synth_sync_res.PNG)
+	      
 The verilog code is given by the following and it is importnant to observe the inputs which are present inside always statement. 
+	      
  <pre><code>module dff\_syncres ( input clk , input async\_reset , input sync\_reset , input d , output reg q );
 always @ (posedge clk )
 begin
@@ -185,11 +201,18 @@ else
       q <= d;
 end
 endmodule</code></pre>
+
+
 #### **Flop with synchronous and asynchronous set/reset**
+
 In this coding style Din is synchronized with clock whereas asynchronous reset pit is not synchronized.
+
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/DFF_asyncres_syncres.PNG)
+
 The following figure shows synthesis schematic of the design.
+
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/DFF/Synth_async_sync.PNG)
+
 <pre><code>module dff\_asyncres\_syncres ( input clk , input async\_reset , input sync\_reset , input d , output reg q );
 always @ (posedge clk , posedge async\_reset)
 begin
@@ -204,6 +227,7 @@ endmodule</code></pre>
 
 ## **3. Introduction to optimisation**
 Optimization in VLSI digital circuits is required in order to design an efficient circuit in terms of area and power.
+
 ### **3.1 Optimization of combinational circuits**
  In combinational circuit design optimization is done at two levels.
 - Constant propagation
@@ -646,12 +670,99 @@ endmodule
 
 ```
 
-Fig below show simulated waveform and synthesis results of the above code. In this we can observe when both I0 and I2 are zero, the output remains at either 0 or 1.
+Figure below shows the simulated waveform and synthesis results of the above code. In this we can observe when both I0 and I2 are zero, the output remains at either 0 or 1.
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/if_ex2.PNG)
 
 
 ![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/if_ex2_synth.PNG)
 
+### **5.2. CASE Statement**
+
+Case statements are mapped to mux when they are synthesized. In the case statements also infers latches when its not written properly.
+
+Let us try to understand this by taking an example of a complete case statement and an incomplete case statement.
+
+Given below is the code of an incomplete case statement example which will result in an inferred latch.
+
+```
+module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+	endcase
+end
+endmodule
+```
+
+As shown in the above code, only two conditons of sel line is specified and hence in an inferred latch.
+The following figure shows simulated waveform and synthesis output. As it can be seen in simulated output, output is latched for 10 and 11 conditions.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/case1.PNG)
+
+It can be seen in the synthesis output, D-latch is present at the output.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/Synth_case1.PNG)
+
+Now, let us into a complete case statement.
+
+consider a following code.
+
+```
+module comp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+		default : y = i2;
+	endcase
+end
+endmodule
+
+```
+In the above code the missing conditions are taken care by default statement. Also simulation of above code showsn below.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/case2.PNG)
+
+And also it can be observed from the synthesized output, no D latch is inferred.
+
+![](https://github.com/mrshashi4u/RTL-Design-and-Synthesis/blob/main/D5/synth_case2.PNG)
+
+### **5.3. Looping constructs**
+
+There are two types of looping constructs 
+
+-for loop constructs
+-for generate loop constructs
+
+**for loop constructs**
+*for* loops are placed inside the always statement. This loop is not going to instantiate any hardware.
+Consider the following example of loop construct.
+```
+module mux_generate (input i0 , input i1, input i2 , input i3 , input [1:0] sel  , output reg y);
+wire [3:0] i_int;
+assign i_int = {i3,i2,i1,i0};
+integer k;
+always @ (*)
+begin
+for(k = 0; k < 4; k=k+1) begin
+	if(k == sel)
+		y = i_int[k];
+end
+end
+endmodule
+```
+
+The above code represents a 4:1 Mux. The same can be verified by synthesizing this design.
+
+The figure below shows synthesized output of the above code.
 
 
+**for generate loop constructs**
+
+The above code represents an 4:1 Mux. The same can be verified by synthesizing this design.
+T
+It is used outside the always constructs and used to instantiate an hardware.
